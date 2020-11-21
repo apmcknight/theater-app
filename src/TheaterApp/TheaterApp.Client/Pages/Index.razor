@@ -12,10 +12,10 @@
           <div class="col-sm-6">
             <AuthorizeView>
               <Authorized>
-                <h1 id="greetingText" class="m-0 text-dark">Good Day, @context.User.Identity.Name!</h1>
+                <h1 class="m-0 text-dark">Hello, @context.User.Identity.Name!</h1>
               </Authorized>
               <NotAuthorized>
-                
+                <h3>To see the Dashboard, please Sign In!</h3>
               </NotAuthorized>
             </AuthorizeView>
           </div><!-- /.col -->
