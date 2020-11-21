@@ -1,0 +1,29 @@
+
+
+
+
+
+@* <p class="@(DateTime.Now.Hour >=5 && DateTime.Now.Hour <=19)">Hello,</p> *@
+
+@* <p>@GreetingStore</p>
+
+@code{
+    public string GreetingStore {get; set;}
+
+    if(DateTime.Now.Hour<12)
+    {
+    greeting.Text = "Good Morning";
+    greeting.Text = Convert.ToString(DateTime.Now);
+    }
+    else(DateTime.Now.Hour<17)
+    {
+    greeting.Text = "Good Afternoon";
+    greeting.Text = Convert.ToString(DateTime.Now);
+    }
+    else
+    {
+    greeting.Text = "Good Evening";
+    greeting.Text = Convert.ToString(DateTime.Now);
+    }
+} *@
+
