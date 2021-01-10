@@ -1,16 +1,18 @@
 {
+  "$schema": "http://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:2114",
-      "sslPort": 44389
+      "applicationUrl": "http://localhost:47904",
+      "sslPort": 44367
     }
   },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
+      "launchUrl": "weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -18,7 +20,8 @@
     "TheaterApp.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:53367;http://localhost:49357",
+      "launchUrl": "weatherforecast",
+      "applicationUrl": "https://localhost:56750;http://localhost:29326",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
