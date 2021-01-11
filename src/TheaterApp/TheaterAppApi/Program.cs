@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace TheaterApp.Api
+namespace TheaterAppApi
 {
     public class Program
     {

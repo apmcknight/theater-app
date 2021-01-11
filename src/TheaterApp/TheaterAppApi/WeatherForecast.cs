@@ -1,6 +1,6 @@
 using System;
 
-namespace TheaterApp.Api
+namespace TheaterAppApi
 {
     public class WeatherForecast
     {

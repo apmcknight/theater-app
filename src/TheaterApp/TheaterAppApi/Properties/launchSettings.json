@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:47904",
+      "applicationUrl": "http://localhost:54994",
       "sslPort": 44367
     }
   },
@@ -12,16 +12,16 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "/api/todo",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "TheaterApp.Api": {
+    "TheaterAppApi": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
-      "applicationUrl": "https://localhost:56750;http://localhost:29326",
+      "launchUrl": "/api/todo",
+      "applicationUrl": "https://localhost:12850;http://localhost:24398",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
