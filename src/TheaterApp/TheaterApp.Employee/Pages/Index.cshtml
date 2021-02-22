@@ -1,0 +1,74 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="custom-margin-wrapper">
+    <div class="alert alert-dark alert-dismissible fade show" role="alert">
+        <strong>Development Enviroment Detected:</strong> You should use a production build if you're
+        running this app in production. Reference ID: DE1002
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Services Slow or Down</h4>
+        <p>
+            Our IT Staff has been made aware of several issues with our phone system Avya. They're working quickly to resolve the issue, however they're still working on it.
+            You may notice slow connections, missed calles, or bad quality calls.
+        </p>
+        <hr>
+        <p class="mb-0">If you require further assitance please call our help desk by dialing 3321.</p>
+    </div>
+
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, there!</h1>
+        <p class="lead">
+            To access customer data and content, please sign in with your ID and Password. If you have issues or forgot them, please contact
+            the Information Technology department by dialing: 3321 on your desk phone.
+        </p>
+        <hr class="my-4">
+        <p>
+            Learn how we've made changes for You and Your health in our weekly COVID Breifing.
+        </p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p>
+    </div>
+
+    <div class="card-deck">
+        <div class="card">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+    </div>
+
+</div>

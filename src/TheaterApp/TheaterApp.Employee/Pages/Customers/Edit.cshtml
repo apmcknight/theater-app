@@ -1,0 +1,104 @@
+@page
+@model TheaterApp.Employee.Pages.Customers.EditModel
+
+@{ ViewData["Title"] = "Edit"; }
+
+<div class="custom-margin-wrapper">
+
+    <h1>Edit Customer: @Html.DisplayFor(model => model.Customer.FirstName)&nbsp;@Html.DisplayFor(model => model.Customer.LastName) </h1>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Customers</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit a Customer</li>
+        </ol>
+    </nav>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Customer.ID" />
+                <div class="form-group">
+                    <label asp-for="Customer.FirstName" class="control-label"></label>
+                    <input asp-for="Customer.FirstName" class="form-control" />
+                    <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Customer.LastName" class="control-label"></label>
+                    <input asp-for="Customer.LastName" class="form-control" />
+                    <span asp-validation-for="Customer.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Customer.EMailAddress" class="control-label"></label>
+                    <input asp-for="Customer.EMailAddress" class="form-control" />
+                    <span asp-validation-for="Customer.EMailAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Customer.MailingAddress" class="control-label"></label>
+                    <input asp-for="Customer.MailingAddress" class="form-control" />
+                    <span asp-validation-for="Customer.MailingAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Customer.City" class="control-label"></label>
+                    <input asp-for="Customer.City" class="form-control" />
+                    <span asp-validation-for="Customer.City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Customer.State" class="control-label"></label>
+                    <input asp-for="Customer.State" class="form-control" />
+                    <span asp-validation-for="Customer.State" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Customer.PhoneNumber" class="control-label"></label>
+                    <input asp-for="Customer.PhoneNumber" class="form-control" />
+                    <span asp-validation-for="Customer.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Customer.SeatingPreference" class="control-label"></label>
+                    <input asp-for="Customer.SeatingPreference" class="form-control" />
+                    <span asp-validation-for="Customer.SeatingPreference" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Customer.IsSeasonTicketHolder" /> @Html.DisplayNameFor(model => model.Customer.IsSeasonTicketHolder)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Customer.HasFoodAlergey" /> @Html.DisplayNameFor(model => model.Customer.HasFoodAlergey)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Customer.FoodAlergey" class="control-label"></label>
+                    <input asp-for="Customer.FoodAlergey" class="form-control" />
+                    <span asp-validation-for="Customer.FoodAlergey" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Customer.EmergencyContactFullName" class="control-label"></label>
+                    <input asp-for="Customer.EmergencyContactFullName" class="form-control" />
+                    <span asp-validation-for="Customer.EmergencyContactFullName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Customer.EmergencyContactPhone" class="control-label"></label>
+                    <input asp-for="Customer.EmergencyContactPhone" class="form-control" />
+                    <span asp-validation-for="Customer.EmergencyContactPhone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update Customer" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="./Index">Cancel</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
+</div>

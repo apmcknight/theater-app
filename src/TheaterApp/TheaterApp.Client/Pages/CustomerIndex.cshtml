@@ -1,0 +1,111 @@
+@page "/customer/"
+@model TheaterApp.Client.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Customers</h1>
+
+<button class="btn btn-primary">
+    <a href="/customer/create">
+        New Customer
+    </a>
+</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].EMailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].MailingAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].SeatingPreference)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].IsSeasonTicketHolder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].HasFoodAlergey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].FoodAlergey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].EmergencyContactFullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customers[0].EmergencyContactPhone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Customers)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EMailAddress)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MailingAddress)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.City)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.State)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PhoneNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SeatingPreference)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IsSeasonTicketHolder)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HasFoodAlergey)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FoodAlergey)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EmergencyContactFullName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EmergencyContactPhone)
+    </td>
+    <td>
+        <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+        <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+        <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+    </td>
+</tr>}
+    </tbody>
+</table>

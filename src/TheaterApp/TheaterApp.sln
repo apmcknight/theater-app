@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheaterApp.Client", "TheaterApp.Client\TheaterApp.Client.csproj", "{A338676E-F0EF-40F7-AFC3-3EC2ED730976}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheaterApp.Employee", "TheaterApp.Employee\TheaterApp.Employee.csproj", "{6DC11F17-2C75-460D-9EF7-D19EAECD525D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{A338676E-F0EF-40F7-AFC3-3EC2ED730976}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A338676E-F0EF-40F7-AFC3-3EC2ED730976}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A338676E-F0EF-40F7-AFC3-3EC2ED730976}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC11F17-2C75-460D-9EF7-D19EAECD525D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC11F17-2C75-460D-9EF7-D19EAECD525D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC11F17-2C75-460D-9EF7-D19EAECD525D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC11F17-2C75-460D-9EF7-D19EAECD525D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -40,6 +40,9 @@ namespace TheaterApp.Client
             services.AddServerSideBlazor();
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             services.AddSingleton<WeatherForecastService>();
+
+            services.AddDbContext<CustomersDatabaseContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("CustomersDatabaseContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
