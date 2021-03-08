@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using TheaterApp.Employee.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
 
 namespace TheaterApp.Employee.Pages.Customers
 {
+    [Authorize]
     public class DeleteModel : PageModel
     {
         private readonly CustomerDataContext _context;
