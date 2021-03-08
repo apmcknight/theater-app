@@ -10,18 +10,16 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Customers</a></li>
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/customers/">Customers</a></li>
             <li class="breadcrumb-item active" aria-current="page">@Html.DisplayFor(model => model.Customer.FirstName)&nbsp;@Html.DisplayFor(model => model.Customer.LastName)</li>
         </ol>
     </nav>
 
     <div>
-@* TODO: Figure out how to logicaly ender this alert. If HasAlergey = true then render the alert, if not then nothing will happen.
-   Same thing should be implimented with Season Ticket holders, and if their credit card on file is about to expire.
-*@
-        @*@{
-            if(@Html.ValueFor(model => model.Customer.HasFoodAlergey)) = true)
+
+        @{
+            if(Model.Customer.HasFoodAlergey == true)
             {
                 <div class="alert alert-warning" role="alert">
                     <h4 class="alert-heading">FOOD ALERGEY</h4>
@@ -37,94 +35,130 @@
             } else
             {
             }
-        }*@
+
+            if(Model.Customer.IsSeasonTicketHolder == true)
+            {
+                <div class="alert alert-primary" role="alert">
+                    <h4 class="alert-heading">SEASON TICKET HOLDER</h4>
+                    <p>
+                        This customer is an active season ticket holder. When making a new or changing a reservation please
+                        remind them of our season ticket policy. Found <a href="/policy/season-ticket">here.</a> Remember:
+                        We do not offer refunds.
+                    </p>
+                    <hr>
+                    <p class="mb-0">
+                        This customers prefered seating is:&nbsp;@Html.DisplayFor(model => model.Customer.SeatingPreference)
+                    </p>
+                </div>
+            } else
+            {
+            }
+        }
 
 
         <hr />
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Customer.FirstName)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Customer.FirstName)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Customer.LastName)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Customer.LastName)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Customer.EMailAddress)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Customer.EMailAddress)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Customer.MailingAddress)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Customer.MailingAddress)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Customer.City)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Customer.City)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Customer.State)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Customer.State)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Customer.PhoneNumber)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Customer.PhoneNumber)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Customer.SeatingPreference)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Customer.SeatingPreference)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Customer.IsSeasonTicketHolder)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Customer.IsSeasonTicketHolder)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Customer.HasFoodAlergey)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Customer.HasFoodAlergey)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Customer.FoodAlergey)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Customer.FoodAlergey)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Customer.EmergencyContactFullName)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Customer.EmergencyContactFullName)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Customer.EmergencyContactPhone)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Customer.EmergencyContactPhone)
-            </dd>
-        </dl>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div style="padding-top: 5%; padding-bottom: 5%; padding-left: 10%; padding-right: 10%;" class="card">
+                    <h3>Customer Name:</h3>
+                    <div>
+                        <h5>
+                            @Html.DisplayFor(model => model.Customer.FirstName)&nbsp;@Html.DisplayFor(model => model.Customer.LastName)
+                        </h5>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div style="padding-top: 5%; padding-bottom: 5%; padding-left: 10%; padding-right: 10%;" class="card">
+                    <h3>Customer Address:</h3>
+                    <div>
+                        <h5>
+                            @Html.DisplayFor(model => model.Customer.MailingAddress)
+                        </h5>
+                        <h5>
+                            @Html.DisplayFor(model => model.Customer.City)
+                        </h5>
+                        <h5>
+                            @Html.DisplayFor(model => model.Customer.State)
+                        </h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div style="padding-top: 5%; padding-bottom: 5%; padding-left: 10%; padding-right: 10%;" class="card">
+                    <h3>Contact Information:</h3>
+                    <div>
+                        <h5>
+                        <strong>E-Mail:</strong>
+                            @Html.DisplayFor(model => model.Customer.EMailAddress)
+                        </h5>
+                        <h5>
+                        <strong>Phone:</strong>
+                            @Html.DisplayFor(model => model.Customer.PhoneNumber)
+                        </h5>
+                    </div>
+                </div>
+            </div>
+
+        <!-- RENDERS SEASON TICKET DATA, IF SET | OR A PROPT TO UP-SELL IF NOT. -->
+        @{
+            if(Model.Customer.IsSeasonTicketHolder == true)
+            {
+                <div class="col-md-4">
+                    <div style="padding-top: 5%; padding-bottom: 5%; padding-left: 10%; padding-right: 10%;" class="card">
+                        <h2>Customer is a Season Ticket Holder</h2>
+                        <h3>Seating Preference:</h3>
+                        <div>
+                            <h5>
+                                @Html.DisplayFor(model => model.Customer.SeatingPreference)
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            } else
+            {
+                <div class="col-md-4">
+                    <div style="padding-top: 5%; padding-bottom: 5%; padding-left: 10%; padding-right: 10%;" class="card">
+                        <h2>This customer is not a Season Ticket Holder</h2>
+                        <p>You should try to upsell the customer!</p>
+                    </div>
+                </div>
+            }
+        }
+
+        <!-- RENDERS EMERGENCY CONTACT DETAILS, IF SET -->
+        @{
+            if(Model.Customer.HasFoodAlergey == true)
+            {
+                <div class="col-md-4">
+                    <div style="padding-top: 5%; padding-bottom: 5%; padding-left: 10%; padding-right: 10%;" class="card">
+                        <h3>Emergency Contact:</h3>
+                        <div>
+                            <h5>
+                            <strong>First &amp; Last Name:</strong>
+                                @Html.DisplayFor(model => model.Customer.EmergencyContactFullName)
+                            </h5>
+                            <h5>
+                            <strong>Phone:</strong>
+                                @Html.DisplayFor(model => model.Customer.EmergencyContactPhone)
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            } else
+            {
+            }
+        }
+      
     </div>
-    <div>
+
+    <div style="margin: 30px 0;">
         <a asp-page="./Edit" asp-route-id="@Model.Customer.ID">Edit</a> |
-        <a asp-page="./Index">Back to List</a>
+        <a asp-page="./Index">Go back</a>
     </div>
 
 </div>
