@@ -37,6 +37,11 @@ namespace TheaterApp.Employee
 
             services.AddDbContext<CustomerDataContext>(options =>
                     options.UseSqlite(Configuration.GetConnectionString("CustomerDataContext")));
+
+            services.AddDbContext<CustomerDataContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("ReservationDataContext")));
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
