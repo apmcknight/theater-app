@@ -5,104 +5,83 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="custom-margin-wrapper">
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].ReservationShow)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].ReservationDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].ReservationTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].IsGroupSale)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].ReservationGuestAmount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].ReservationGuestNames)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].ReservationGuestAlergey)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].ReservationSeatingPreference)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].ReservationCustomerName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].AddBirthdayPackage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].AddAnniversaryPackage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].WasReservationPrePaid)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].ReservationPaymentDetails)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Reservation) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservationShow)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservationDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservationTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsGroupSale)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservationGuestAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservationGuestNames)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservationGuestAlergey)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservationSeatingPreference)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservationCustomerName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AddBirthdayPackage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AddAnniversaryPackage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WasReservationPrePaid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservationPaymentDetails)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <h1>Reservations</h1>
+
+    <a style="margin-top: 10px; margin-bottom: 40px;" class="btn btn-primary" asp-page="/reservations/create">
+        <i style="width: 3%; margin-right: 15px;" class="right fas fa-plus"></i>
+        Create a New Reservation
+    </a>
+
+    <table class="table" style="margin-bottom: 300px;">
+        <thead>
+            <tr>
+                <th>
+                   Show 
+                </th>
+                <th>
+                    Reservation Date
+                </th>
+                <th>
+                    Reservation Time
+                </th>
+                <th>
+                   Group Reservation
+                </th>
+                <th>
+                    Reservation Paid
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Reservation)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReservationShow)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReservationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReservationTime)
+                </td>
+                @if (item.IsGroupSale == true)
+                {
+                    <td>
+                        Group Reservation
+                    </td>
+                }
+                else
+                {
+                    <td>
+
+                    </td>
+                }
+                
+                @if (item.WasReservationPrePaid == true)
+                {
+                    <td>
+                        Paid
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Not Paid
+                    </td>
+
+                }
+
+
+                <td>
+                    <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.ID"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-edit"></i>Edit</a>
+                    <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.ID"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-info-circle"></i>Details</a>
+                    <a class="btn btn-warning" asp-page="./Delete" asp-route-id="@item.ID"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-trash"></i>Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
