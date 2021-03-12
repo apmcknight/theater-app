@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -40,6 +40,9 @@ namespace TheaterApp.Employee
 
             services.AddDbContext<CustomerDataContext>(options =>
                     options.UseSqlite(Configuration.GetConnectionString("ReservationDataContext")));
+
+            services.AddDbContext<ReservationContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("ReservationContext")));
 
 
         }

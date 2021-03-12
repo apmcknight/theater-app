@@ -7,23 +7,26 @@
 
 <div class="custom-margin-wrapper">
     <h1>Customers</h1>
-    <p>
-        <a asp-page="Create">Create New</a>
-    </p>
+
+    <a style="margin-top: 10px; margin-bottom: 10px;" class="btn btn-primary" asp-page="/customers/create">
+        <i style="width: 3%; margin-right: 15px;" class="right fas fa-plus"></i>
+        Add a New Customer
+    </a>
+    
     <table class="table">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Customer[0].FirstName)
+                    First Name
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Customer[0].LastName)
+                    Last Name
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Customer[0].EMailAddress)
+                    E-Mail Address
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Customer[0].MailingAddress)
+                   Mailing Address
                 </th>
               
                 <th></th>
@@ -47,9 +50,9 @@
     </td>
    
     <td>
-        <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-        <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-        <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+        <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.ID"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-edit"></i>Edit</a>
+        <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.ID"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-info-circle"></i>Details</a>
+        <a class="btn btn-warning" asp-page="./Delete" asp-route-id="@item.ID"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-trash"></i>Delete</a>
     </td>
 </tr>}
         </tbody>
