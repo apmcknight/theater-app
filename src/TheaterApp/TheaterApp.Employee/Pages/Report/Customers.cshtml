@@ -1,0 +1,157 @@
+﻿@page
+@model CustomerReportModel
+
+@{
+    ViewData["Title"] = "Reports";
+}
+
+<style>
+    .headerItems{
+        margin-bottom: 25px;
+    }
+    .customer-report-btn{ margin-top: 15px; margin-bottom: 15px; }
+    .display-none{ display: none; }
+</style>
+
+<div class="custom-margin-wrapper">
+    <div id="printHidden">
+        <h1 class="display-4">Reports</h1>
+        <h2 class="font-weight-bold">Run a Customer Report</h2>
+        <p class="lead">To Run a report, select the options below and click "run"</p>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/report/">Reports</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Customer Reports</li>
+            </ol>
+        </nav>
+
+        <h2>Print Preview:</h2>
+
+    </div>
+
+    <div class="card" id="print-area">
+
+        <h1 style="margin-top: 30px;" id="printVisable" class="display-none">
+            TheaterApp
+        </h1>
+        <h4 style="margin-bottom: 55px; " id="printVisable" class="display-none">
+            Customers Report | Report Ran on <span id="dateTime"></span>
+        </h4>
+        
+        <table class="table">
+            <thead>
+                
+                <tr>
+                    <th>
+                        First Name
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+                    <th>
+                        Food Algery
+                    </th>
+                    <th>
+                        Phone Number
+                    </th>
+                    <th>
+                        E-Mail Address
+                    </th>
+                    <th>
+                        Mailing Address
+                    </th>
+                    <th>
+                        State
+                    </th>
+                    <th>
+                        Seating Preference
+                    </th>
+
+
+                    <th></th>
+                </tr>
+                
+                </thead>
+            <tbody>
+                @foreach (var item in Model.Customer)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        @if (item.HasFoodAlergey == true)
+                        {
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FoodAlergey)
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                N/A
+                            </td>
+                        }
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EMailAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MailingAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.State)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SeatingPreference)
+                        </td>
+
+                    </tr>
+                }
+
+                <h3>Amount of Customers:</h3>
+                <p>
+                    0
+                </p>
+
+                <h3>Amount of Season Ticket Holders:</h3>
+                <p>
+                    0
+                </p>
+
+                <h3>Amount of Customers with Algereys :</h3>
+                <p>
+                    0
+                </p>
+            </tbody>
+        </table>
+    </div>
+
+    <button onClick="printOnClick()" id="printHidden" class="btn btn-primary customer-report-btn">Run Report</button>
+
+
+</div>
+
+@*RUNS A FUNCTION ON BUTTON PRESS THAT OPENS THE PRINT WINDOW OF A BROWSER.*@
+<script>
+    function printOnClick() {
+        window.print();
+    }
+
+    function getDateTime() {
+        let current = new Date();
+        let cDate = current.getMonth() + '/' + (current.getDate() + 1) + '/' + current.getFullYear();
+        let cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
+        let dateAndTime = cDate + ' ' + cTime;
+        return (dateAndTime);
+    }
+
+    document.getElementById('dateTime').innerHTML = getDateTime();
+
+</script>

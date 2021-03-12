@@ -9,6 +9,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - TheaterApp.Employee</title>
+    @*PRINT STYLE SHEET*@
+    <link rel="stylesheet" href="~/css/print.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <!-- Font Awesome -->
@@ -176,33 +178,14 @@
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/report" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
-                                    Reporting
+                                    Run a Report
                                     <i class="fas fa-angle-right right"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/tables/simple.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Simple Tables</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/tables/data.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>DataTables</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/tables/jsgrid.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>jsGrid</p>
-                                    </a>
-                                </li>
-                            </ul>
+                            
                         </li>
 
 
@@ -420,7 +403,7 @@
         </main>
     </div>
 
-    <footer class="main-footer">
+    <footer id="printHidden" class="main-footer">
         <strong>Copyright &copy; 2020 <a href="https://www.mcknight.digital">mcknight.digital</a></strong>
         All Rights Reserved.
         <div class="float-right d-none d-sm-inline-block">
