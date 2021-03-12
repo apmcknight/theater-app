@@ -9,6 +9,13 @@
 
     <h1>Reservations</h1>
 
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/reservations/">Reservations</a></li>
+        </ol>
+    </nav>
+
     <a style="margin-top: 10px; margin-bottom: 40px;" class="btn btn-primary" asp-page="/reservations/create">
         <i style="width: 3%; margin-right: 15px;" class="right fas fa-plus"></i>
         Create a New Reservation
@@ -18,7 +25,7 @@
         <thead>
             <tr>
                 <th>
-                   Show 
+                    Show
                 </th>
                 <th>
                     Reservation Date
@@ -27,7 +34,7 @@
                     Reservation Time
                 </th>
                 <th>
-                   Group Reservation
+                    Group Reservation
                 </th>
                 <th>
                     Reservation Paid
@@ -37,50 +44,49 @@
         <tbody>
             @foreach (var item in Model.Reservation)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReservationShow)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReservationDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReservationTime)
-                </td>
-                @if (item.IsGroupSale == true)
-                {
+                <tr>
                     <td>
-                        Group Reservation
+                        @Html.DisplayFor(modelItem => item.ReservationShow)
                     </td>
-                }
-                else
-                {
                     <td>
-
+                        @Html.DisplayFor(modelItem => item.ReservationDate)
                     </td>
-                }
-                
-                @if (item.WasReservationPrePaid == true)
-                {
                     <td>
-                        Paid
+                        @Html.DisplayFor(modelItem => item.ReservationTime)
                     </td>
-                }
-                else
-                {
+                    @if (item.IsGroupSale == true)
+                    {
+                        <td>
+                            Group Reservation
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                        </td>
+                    }
+
+                    @if (item.WasReservationPrePaid == true)
+                    {
+                        <td>
+                            Paid
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            Not Paid
+                        </td>
+
+                    }
+
+
                     <td>
-                        Not Paid
+                        <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.ID"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-edit"></i>Edit</a>
+                        <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.ID"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-info-circle"></i>Details</a>
+                        <a class="btn btn-warning" asp-page="./Delete" asp-route-id="@item.ID"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-trash"></i>Delete</a>
                     </td>
-
-                }
-
-
-                <td>
-                    <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.ID"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-edit"></i>Edit</a>
-                    <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.ID"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-info-circle"></i>Details</a>
-                    <a class="btn btn-warning" asp-page="./Delete" asp-route-id="@item.ID"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-trash"></i>Delete</a>
-                </td>
-            </tr>
+                </tr>
             }
         </tbody>
     </table>

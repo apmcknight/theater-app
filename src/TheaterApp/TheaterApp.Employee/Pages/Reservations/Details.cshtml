@@ -5,93 +5,169 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="custom-margin-wrapper">
 
-<div>
-    <h4>Reservation</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Reservation.ReservationShow)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Reservation.ReservationShow)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Reservation.ReservationDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Reservation.ReservationDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Reservation.ReservationTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Reservation.ReservationTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Reservation.IsGroupSale)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Reservation.IsGroupSale)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Reservation.ReservationGuestAmount)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Reservation.ReservationGuestAmount)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Reservation.ReservationGuestNames)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Reservation.ReservationGuestNames)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Reservation.ReservationGuestAlergey)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Reservation.ReservationGuestAlergey)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Reservation.ReservationSeatingPreference)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Reservation.ReservationSeatingPreference)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Reservation.ReservationCustomerName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Reservation.ReservationCustomerName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Reservation.AddBirthdayPackage)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Reservation.AddBirthdayPackage)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Reservation.AddAnniversaryPackage)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Reservation.AddAnniversaryPackage)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Reservation.WasReservationPrePaid)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Reservation.WasReservationPrePaid)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Reservation.ReservationPaymentDetails)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Reservation.ReservationPaymentDetails)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Reservation.ID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+    <h1>
+       @Html.DisplayFor(model => model.Reservation.ReservationCustomerName)'s Reservation for: @Html.DisplayFor(model => model.Reservation.ReservationShow)
+    </h1>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/reservations/">Reservations</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+                @Html.DisplayFor(model => model.Reservation.ReservationCustomerName)'s Reservation for: @Html.DisplayFor(model => model.Reservation.ReservationShow)
+            </li>
+        </ol>
+    </nav>
+
+    <div>
+        <hr />
+
+        <div class="row">
+            <div class="col-md-4">
+                <div style="padding-top: 5%; padding-bottom: 5%; padding-left: 10%; padding-right: 10%;" class="card">
+                    <h3 style="font-weight: bold;">Reservation Show:</h3>
+                    <div>
+                        <h5>
+                            @Html.DisplayFor(model => model.Reservation.ReservationShow)
+                        </h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div style="padding-top: 5%; padding-bottom: 5%; padding-left: 10%; padding-right: 10%;" class="card">
+                    <h3 style="font-weight: bold;">Reservation Date and Time:</h3>
+                    <div>
+                        <h5>
+                            @Html.DisplayFor(model => model.Reservation.ReservationDate)
+                        </h5>
+                        <h5>
+                            at @Html.DisplayFor(model => model.Reservation.ReservationTime)
+                        </h5>
+                    </div>
+                </div>
+            </div>
+
+            @if (Model.Reservation.IsGroupSale == true)
+            {
+                <div class="col-md-4">
+                    <div style="padding-top: 5%; padding-bottom: 5%; padding-left: 10%; padding-right: 10%;" class="card">
+                        <h3 style="font-weight: bold;">This is a Group Reservation</h3>
+                        <div>
+                            <h5>
+                                There will be @Html.DisplayFor(model => model.Reservation.ReservationGuestAmount) guests,
+                            </h5>
+                            <h5>
+                                Guest Names: @Html.DisplayFor(model => model.Reservation.ReservationGuestNames)
+                            </h5>
+                            <h5>
+                                Guests with Food Alergeies: @Html.DisplayFor(model => model.Reservation.ReservationGuestAlergey)
+                            </h5>
+                            <h5>
+                                Seating Preference: @Html.DisplayFor(model => model.Reservation.ReservationSeatingPreference)
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-4">
+                    <div style="padding-top: 5%; padding-bottom: 5%; padding-left: 10%; padding-right: 10%;" class="card">
+                        <h3 style="font-weight: bold;">This is a Standard Reservation</h3>
+                        <div>
+                            <h5>
+                                There will be @Html.DisplayFor(model => model.Reservation.ReservationGuestAmount) guests,
+                            </h5>
+                            <h5>
+                                Guest Names: @Html.DisplayFor(model => model.Reservation.ReservationGuestNames)
+                            </h5>
+                            <h5>
+                                Guests with Food Alergeies: @Html.DisplayFor(model => model.Reservation.ReservationGuestAlergey)
+                            </h5>
+                            <h5>
+                                Seating Preference: @Html.DisplayFor(model => model.Reservation.ReservationSeatingPreference)
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+            <div class="col-md-4">
+                <div style="padding-top: 5%; padding-bottom: 5%; padding-left: 10%; padding-right: 10%;" class="card">
+                    <h3 style="font-weight: bold;">Reservation opened By:</h3>
+                    <div>
+                        <h5>
+                            @Html.DisplayFor(model => model.Reservation.ReservationCustomerName)
+                        </h5>
+
+                        @if (Model.Reservation.WasReservationPrePaid == true)
+                        {
+                            <h5>
+                                This reservation was already paid for.
+                            </h5>
+                            <h5>
+                                Payment Method: @Html.DisplayFor(model => model.Reservation.ReservationPaymentDetails)
+                            </h5>
+                        }
+                        else
+                        {
+
+                            <h5>
+                                This reservation needs to be paid for. Please ask customer for payment method.
+                            </h5>
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+            @if (Model.Reservation.AddBirthdayPackage == true)
+            {
+                <div class="col-md-4">
+                    <div style="padding-top: 5%; padding-bottom: 5%; padding-left: 10%; padding-right: 10%;" class="card">
+                        <h3 style="font-weight: bold;">Package Added to Reservation:</h3>
+                        <div>
+                            <h5>
+                                A Birthday package was added to this reservation.
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+            }
+
+            @if (Model.Reservation.AddAnniversaryPackage == true)
+            {
+                <div class="col-md-4">
+                    <div style="padding-top: 5%; padding-bottom: 5%; padding-left: 10%; padding-right: 10%;" class="card">
+                        <h3 style="font-weight: bold;">Package Added to Reservation:</h3>
+                        <div>
+                            <h5>
+                                An Anniversary package was added to this reservation.
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+            }
+
+
+
+
+        </div>
+
+        <div style="margin: 30px 0;">
+            <a class="btn btn-primary" asp-page="./Index"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-arrow-alt-circle-left"></i>Back</a>
+            <a class="btn btn-secondary" asp-page="./Edit" asp-route-id="@Model.Reservation.ID"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-edit"></i>Edit</a>
+            <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@Model.Reservation.ID"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-trash"></i>Delete</a>
+        </div>
+
+    </div>

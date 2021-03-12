@@ -14,6 +14,43 @@
     font-size: 2.5em;
 }
 
+.spinner-div-wrapper{
+    position: relative;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.spinner {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0;
+    right: 0;
+    background: red;
+    animation: spinner-loading 1s linear infinite;
+}
+
+.visable{
+    display: block;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+@keyframes spinner-loading {
+    from {
+        transform: rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateZ(360deg);
+    }
+}
 
 /* SCAFFOLDED CSS ONLY BELOW THIS LINE */
 

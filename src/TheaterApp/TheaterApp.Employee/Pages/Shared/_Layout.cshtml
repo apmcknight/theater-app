@@ -55,6 +55,7 @@
         .overflowNone {
             overflow: hidden;
         }
+        
     </style>
 
     <header>
@@ -97,7 +98,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="./reservations" class="nav-link">
+                                    <a href="/reservations/" class="nav-link">
                                         <i class="fas fa-concierge-bell nav-icon"></i>
                                         <p>Reservations</p>
                                     </a>
@@ -138,35 +139,29 @@
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-users"></i>
+                                <i class="nav-icon fas fa-concierge-bell"></i>
                                 <p>
-                                    Group Sales
+                                    Reservations
                                     <i class="right fas fa-angle-right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="pages/charts/chartjs.html" class="nav-link">
+                                    <a href="/reservations/" class="nav-link">
+                                        <i class="far fa-plus nav-icon"></i>
+                                        <p>View All Reservations</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/reservations/create" class="nav-link">
                                         <i class="far fa-plus nav-icon"></i>
                                         <p>New Reservation</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/flot.html" class="nav-link">
+                                    <a href="/reservations/" class="nav-link">
                                         <i class="far fa-pencil nav-icon"></i>
                                         <p>Edit a Reservation</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/inline.html" class="nav-link">
-                                        <i class="far fa-people nav-icon"></i>
-                                        <p>Search Customers</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/inline.html" class="nav-link">
-                                        <i class="far fa-pencil nav-icon"></i>
-                                        <p>General Policies</p>
                                     </a>
                                 </li>
                             </ul>
@@ -294,7 +289,9 @@
 
                         <!-- credit card info-->
                         <div id="nav-tab-card" class="tab-pane fade show active">
-                            <p class="alert alert-success">Some text success or error</p>
+                            <p style="display: none;" class="alert alert-success" id="successfull-alert">Test Payment processed Successfully!</p>
+                            <p style="display: none;" class="alert alert-danger" id="error-alert">Test Payment failed to process. ERR:12</p>
+
                             <form role="form">
                                 <div class="form-group">
                                     <label for="username">Customers Full Name (As it apperas on the card)</label>
@@ -336,7 +333,24 @@
 
 
                                 </div>
-                                <button type="button" class="subscribe btn btn-primary btn-block rounded-pill shadow-sm"> Confirm  </button>
+                                <div class="modal-footer">
+                                    <button onClick="spinner()" type="button" class="btn btn-primary" id="process-payment-btn">
+                                        <div class="spinner-div-wrapper">
+                                            <i style="display: none; width: 3%; margin-right: 30px;" id="spinner-btn-icn" class="spinner right fas fa-spinner"></i>
+                                        </div>
+                                        <i style="display: inline-block; width: 3%; margin-right: 25px;" id="solid-icn" class="right fas fa-arrow-circle-right"></i>
+
+                                        <div id="process-text">
+                                            Process
+                                        </div>
+                                    </button>
+
+
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                        <i style="width: 3%; margin-right: 25px;" class="right fas fa-times-circle"></i>
+                                        Cancel
+                                    </button>
+                                </div>
                             </form>
                         </div>
                         <!-- End -->
@@ -395,10 +409,7 @@
                     </div>
                     <!-- End -->
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    
-                </div>
+               
             </div>
         </div>
     </div>
@@ -416,6 +427,31 @@
             <b>Version</b> 1.0
         </div>
     </footer>
+
+    <script>
+                                  
+
+        let spinnerBtn = document.getElementById("spinner-btn-icn");
+        let solidIcn = document.getElementById("solid-icn");
+        let processTxt = document.getElementById("process-text");
+        let successBanner = document.getElementById("successfull-alert");
+        let errorBanner = document.getElementById("error-alert");
+
+
+        function spinner() {
+            processTxt.style.display = "none";
+            solidIcn.style.display = "none";
+            spinnerBtn.style.display = "inline-block";
+            successBanner.style.display = "block";
+
+           @* spinnerBtn.classList.remove = "hidden";
+            spinnerBtn.classList.add = "spinner"*@
+
+            console.log('Button Clicked');
+        }
+
+       
+    </script>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
