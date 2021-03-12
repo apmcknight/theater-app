@@ -1,9 +1,10 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheaterApp.Client", "TheaterApp.Client\TheaterApp.Client.csproj", "{A338676E-F0EF-40F7-AFC3-3EC2ED730976}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheaterApp.Client", "TheaterApp.Client\TheaterApp.Client.csproj", "{A338676E-F0EF-40F7-AFC3-3EC2ED730976}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheaterApp.Employee", "TheaterApp.Employee\TheaterApp.Employee.csproj", "{6DC11F17-2C75-460D-9EF7-D19EAECD525D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheaterApp.Employee", "TheaterApp.Employee\TheaterApp.Employee.csproj", "{6DC11F17-2C75-460D-9EF7-D19EAECD525D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,5 +20,11 @@ Global
 		{6DC11F17-2C75-460D-9EF7-D19EAECD525D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DC11F17-2C75-460D-9EF7-D19EAECD525D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DC11F17-2C75-460D-9EF7-D19EAECD525D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECB06C9F-4EFB-4391-896C-521868448549}
 	EndGlobalSection
 EndGlobal
