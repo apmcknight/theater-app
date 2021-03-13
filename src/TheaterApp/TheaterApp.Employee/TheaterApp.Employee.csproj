@@ -24,7 +24,6 @@
 
   <ItemGroup>
     <Folder Include="Pages\Customers\" />
-    <Folder Include="Pages\Client\" />
     <Folder Include="wwwroot\css\bootstrap\" />
     <Folder Include="wwwroot\css\open-iconic\" />
   </ItemGroup>
