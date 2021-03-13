@@ -5,13 +5,14 @@
     ViewData["Title"] = "Sign In";
 }
 
-<div style="width: 100%; margin-top: 10%; margin-bottom: 10%; margin-left: 120px; margin-right: 120px;">
+<div style="display: block; width: 150%; height: 100%; margin-top: 5%; margin-bottom: 10%; margin-left: 35%; margin-right: 35%;">
 
-    <h1>@ViewData["Title"]</h1>
 
     <div class="row">
         <div class="col-md-4">
-            <section>
+            <section class="card" style="background:#e9e9e9; padding-top: 30px; padding-bottom: 30px; padding-left: 30px; padding-right: 30px;">
+                <h1>@ViewData["Title"]</h1>
+
                 <form id="account" method="post">
                     <h4>To sign in, please enter your User ID and Password</h4>
                     <hr />
@@ -39,14 +40,9 @@
                     </div>
                     <div class="form-group">
                         <p>
-                            <a id="forgot-password" asp-page="./ForgotPassword">Rest Password</a>
+                            Please contact the IT Department if you are locked out of your account.
                         </p>
-                        <p>
-                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register</a>
-                        </p>
-                        <p>
-                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                        </p>
+                      
                     </div>
                 </form>
             </section>

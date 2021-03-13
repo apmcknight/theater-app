@@ -5,90 +5,113 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<div class="custom-margin-wrapper">
+    <h1>Make a New Reservation</h1>
 
-<h4>Reservation</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Reservation.ReservationShow" class="control-label"></label>
-                <input asp-for="Reservation.ReservationShow" class="form-control" />
-                <span asp-validation-for="Reservation.ReservationShow" class="text-danger"></span>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Reservations</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Make a New Reservation</li>
+        </ol>
+    </nav>
+
+    <hr />
+    <div class="row">
+        <div class="card" style="background: #e9e9e9; width: 90%; height: auto; padding-top: 50px; padding-bottom: 20px; padding-left: 60px; padding-right: 60px; margin-left: auto; margin-right: auto;">
+            
+            <div class="row">
+
+                <form method="post">
+
+                    <h3 style="margin-bottom: 40px;">Fill out the details below to make a new reservation.</h3>
+
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Reservation.ReservationShow" class="control-label">Show Name:</label>
+                        <input asp-for="Reservation.ReservationShow" class="form-control" />
+                        <span asp-validation-for="Reservation.ReservationShow" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Reservation.ReservationDate" class="control-label">Date of Reservation:</label>
+                        <input asp-for="Reservation.ReservationDate" class="form-control" />
+                        <span asp-validation-for="Reservation.ReservationDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Reservation.ReservationTime" class="control-label">Time of Reservation:</label>
+                        <input asp-for="Reservation.ReservationTime" class="form-control" />
+                        <span asp-validation-for="Reservation.ReservationTime" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Reservation.ReservationGuestAmount" class="control-label">Total Amount of Guests at Table:</label>
+                        <input asp-for="Reservation.ReservationGuestAmount" class="form-control" />
+                        <span asp-validation-for="Reservation.ReservationGuestAmount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Reservation.ReservationGuestNames" class="control-label">Names of guests seated at the same table:</label>
+                        <input asp-for="Reservation.ReservationGuestNames" class="form-control" />
+                        <span asp-validation-for="Reservation.ReservationGuestNames" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Reservation.ReservationGuestAlergey" class="control-label">List the Guests Alergeys (if any):</label>
+                        <input asp-for="Reservation.ReservationGuestAlergey" class="form-control" />
+                        <span asp-validation-for="Reservation.ReservationGuestAlergey" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Reservation.ReservationSeatingPreference" class="control-label">Seating Preference:</label>
+                        <input asp-for="Reservation.ReservationSeatingPreference" class="form-control" />
+                        <span asp-validation-for="Reservation.ReservationSeatingPreference" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Reservation.ReservationCustomerName" class="control-label">Name of Reservation Holder:</label>
+                        <input asp-for="Reservation.ReservationCustomerName" class="form-control" />
+                        <span asp-validation-for="Reservation.ReservationCustomerName" class="text-danger"></span>
+                    </div>
+
+                    <h2>Reservation Options:</h2>
+
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="Reservation.IsGroupSale" /> Reservation is a Group Sale
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="Reservation.AddBirthdayPackage" /> Add the Birthday Package (+$35.00)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="Reservation.AddAnniversaryPackage" /> Add the Anniversary Package (+$50.00)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="Reservation.WasReservationPrePaid" /> This Reservation was pre-paid
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Reservation.ReservationPaymentDetails" class="control-label">Reservation Payment Confirmation Number:</label>
+                        <input asp-for="Reservation.ReservationPaymentDetails" class="form-control" />
+                        <span asp-validation-for="Reservation.ReservationPaymentDetails" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <a type="button" data-toggle ="modal" data-target="#takePaymentModal " href="#" class="btn btn-warning"><i style="width: 3%; margin-right: 25px;" class="right far fa-credit-card nav-icon"></i>Take a Payment</a>                        
+                        <a class="btn btn-secondary" asp-page="Index"> <i style="width: 3%; margin-right: 25px;" class="right fas fa-arrow-left"></i>Back to Reservations</a>
+
+                    </div>
+
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Reservation.ReservationDate" class="control-label"></label>
-                <input asp-for="Reservation.ReservationDate" class="form-control" />
-                <span asp-validation-for="Reservation.ReservationDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reservation.ReservationTime" class="control-label"></label>
-                <input asp-for="Reservation.ReservationTime" class="form-control" />
-                <span asp-validation-for="Reservation.ReservationTime" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Reservation.IsGroupSale" /> @Html.DisplayNameFor(model => model.Reservation.IsGroupSale)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reservation.ReservationGuestAmount" class="control-label"></label>
-                <input asp-for="Reservation.ReservationGuestAmount" class="form-control" />
-                <span asp-validation-for="Reservation.ReservationGuestAmount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reservation.ReservationGuestNames" class="control-label"></label>
-                <input asp-for="Reservation.ReservationGuestNames" class="form-control" />
-                <span asp-validation-for="Reservation.ReservationGuestNames" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reservation.ReservationGuestAlergey" class="control-label"></label>
-                <input asp-for="Reservation.ReservationGuestAlergey" class="form-control" />
-                <span asp-validation-for="Reservation.ReservationGuestAlergey" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reservation.ReservationSeatingPreference" class="control-label"></label>
-                <input asp-for="Reservation.ReservationSeatingPreference" class="form-control" />
-                <span asp-validation-for="Reservation.ReservationSeatingPreference" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reservation.ReservationCustomerName" class="control-label"></label>
-                <input asp-for="Reservation.ReservationCustomerName" class="form-control" />
-                <span asp-validation-for="Reservation.ReservationCustomerName" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Reservation.AddBirthdayPackage" /> @Html.DisplayNameFor(model => model.Reservation.AddBirthdayPackage)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Reservation.AddAnniversaryPackage" /> @Html.DisplayNameFor(model => model.Reservation.AddAnniversaryPackage)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Reservation.WasReservationPrePaid" /> @Html.DisplayNameFor(model => model.Reservation.WasReservationPrePaid)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Reservation.ReservationPaymentDetails" class="control-label"></label>
-                <input asp-for="Reservation.ReservationPaymentDetails" class="form-control" />
-                <span asp-validation-for="Reservation.ReservationPaymentDetails" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
+ 
 </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

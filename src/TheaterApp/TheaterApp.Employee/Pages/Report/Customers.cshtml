@@ -31,12 +31,12 @@
 
     </div>
 
-    <div class="card" id="print-area">
+    <div style="padding: 50px;" class="card" id="print-area">
 
-        <h1 style="margin-top: 30px;" id="printVisable" class="display-none">
+        <h1 style="margin-top: 30px;" id="printVisable">
             TheaterApp
         </h1>
-        <h4 style="margin-bottom: 55px; " id="printVisable" class="display-none">
+        <h4 style="margin-bottom: 55px; " id="printVisable">
             Customers Report | Report Ran on <span id="dateTime"></span>
         </h4>
         
@@ -146,9 +146,9 @@
 
     function getDateTime() {
         let current = new Date();
-        let cDate = current.getMonth() + '/' + (current.getDate() + 1) + '/' + current.getFullYear();
+        let cDate = (current.getMonth() +1) + '/' + current.getDate() + '/' + current.getFullYear();
         let cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
-        let dateAndTime = cDate + ' ' + cTime;
+        let dateAndTime = cDate + ' at ' + cTime;
         return (dateAndTime);
     }
 
