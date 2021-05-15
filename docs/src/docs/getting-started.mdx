@@ -1,0 +1,48 @@
+---
+title: 'Getting started'
+description: Learn how to get started with Rocket Docs.
+---
+
+Getting started with Eventily shouldn't take more than 5-minutes! If you're ready to begin the install process, let's begin.
+
+First, there are a few things to keep in mind. Are you installing Eventily on a cloud-server, an on-primise server, or on your local machine for testing? Each one of these deployment targets have a unique instalation process. Once you have an idea of where you'll be deploying Eventily to follow the appropriate process below. 
+
+## Installing on Microsoft Azure:
+To install Eventily on Microsoft Azure, 
+
+## Installing on Linux & MacOS:
+To install Eventily on Linux and MacOS, you'll first need to downlaod or `git clone` the release on GitHub.
+You'll need to have the .NET Runtime installed on your Linux or MacOS machine.
+
+In a new terminal, enter the command:
+`git clone https://github.com/apmcknight/theater-app`
+
+This will clone a local copy of Eventily.
+
+**NOTE** Be sure to clone the `production` branch and not the `development` or `main` branch.
+
+Once you have a local copy installed, navigate to the `~$.src/theaterApp/theaterApp` directory.
+Once in the directory run 
+
+- a.) `dotnet restore` to restore NuGet packages.
+- b.) `dotnet build` to build a local image.
+- c.) `dotnet run` to run the application.
+
+Once you execute `dotnet run` a browser should open to port:5000 and or console output should be listed.
+```bash lineNumbers=true
+~$.src/theaterApp/theaterApp
+dotnet restore
+dotet build
+dotnet run
+build scusseeded
+running on port 5000
+```
+
+
+
+
+
+## Installing on Windows
+
+
+These are the deployment targets that have been tested for production use, you may use another cloud service provider or deployment target so long as they support the .NET CLI and SQLite or SQL. This software is "AS IS" as such, we can't be certian other deployment targets will work.
